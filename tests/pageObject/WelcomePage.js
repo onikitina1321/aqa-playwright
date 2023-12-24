@@ -1,12 +1,8 @@
+import BasePage from "./BasePage.js";
 
-export default class WelcomePage {
+export default class WelcomePage extends BasePage {
     constructor(page) {
-        this._page = page
-        this.url = '/'
+        super(page, '/')
         this.signInButton = page.locator('.header_signin')
-    }
-
-    async visit(){
-       await this._page.goto(this.url)
     }
 }

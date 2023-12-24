@@ -12,15 +12,14 @@ test.describe('Registration', async () => {
         welcomePage = new WelcomePage(page)
         await welcomePage.visit()
 
-    })
-
-    test('Registration with correct data', async () => {
-
         await welcomePage.signInButton.click()
         const signInPopup = new SignInPopup(page)
         await signInPopup.registrationButton.click()
-        const registrationPopup = new RegistrationPopup(page)
 
+    })
+
+    test('Registration with correct data', async () => {
+        const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputName.fill('Olena')
         await registrationPopup.inputLastName.fill('Nikitina')
         await registrationPopup.inputEmail.fill(registrationPopup.generateRandomEmail())
@@ -31,11 +30,7 @@ test.describe('Registration', async () => {
 
     test('Name validation - number of symbols', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
         const registrationPopup = new RegistrationPopup(page)
-
         await registrationPopup.inputName.fill('a')
         await registrationPopup.inputName.blur()
         await expect(registrationPopup.errorMessage).toHaveText('Name has to be from 2 to 20 characters long')
@@ -46,9 +41,6 @@ test.describe('Registration', async () => {
 
     test('Name validation - required field', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputName.fill('')
@@ -60,10 +52,6 @@ test.describe('Registration', async () => {
 
     test('Name validation - invalid data', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputName.fill('111')
         await registrationPopup.inputName.blur()
@@ -73,10 +61,6 @@ test.describe('Registration', async () => {
     });
 
     test('Name validation - border colour', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputName.fill('11')
@@ -88,10 +72,6 @@ test.describe('Registration', async () => {
 
     test('Last Name validation - number of symbols', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputLastName.fill('a')
         await registrationPopup.inputLastName.blur()
@@ -102,10 +82,6 @@ test.describe('Registration', async () => {
 
     test('Last Name validation - required field', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputLastName.fill('')
         await registrationPopup.inputLastName.blur()
@@ -114,10 +90,6 @@ test.describe('Registration', async () => {
     });
 
     test('Last Name validation - invalid data', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputLastName.fill('111')
@@ -128,10 +100,6 @@ test.describe('Registration', async () => {
 
     test('Last Name validation - border colour', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputLastName.fill('11')
         await registrationPopup.inputLastName.blur()
@@ -141,10 +109,6 @@ test.describe('Registration', async () => {
 
     test('Email validation - required field', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputEmail.fill('')
         await registrationPopup.inputEmail.blur()
@@ -153,10 +117,6 @@ test.describe('Registration', async () => {
     });
 
     test('Email validation - invalid data', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputEmail.fill('11')
@@ -169,10 +129,6 @@ test.describe('Registration', async () => {
 
     test('Email validation - border colour', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputEmail.fill('11')
         await registrationPopup.inputEmail.blur()
@@ -182,10 +138,6 @@ test.describe('Registration', async () => {
     });
 
     test('Password validation - required field', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPassword.fill('')
@@ -197,10 +149,6 @@ test.describe('Registration', async () => {
 
     test('Password validation - data validation', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPassword.fill('11')
         await registrationPopup.inputPassword.blur()
@@ -211,10 +159,6 @@ test.describe('Registration', async () => {
 
     test('Password validation - border colour', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPassword.fill('11')
         await registrationPopup.inputPassword.blur()
@@ -223,10 +167,6 @@ test.describe('Registration', async () => {
 
     });
     test('Password confirmation validation - required field', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPasswordConfirmation.fill('')
@@ -238,10 +178,6 @@ test.describe('Registration', async () => {
 
     test('Password confirmation validation - invalid data', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPasswordConfirmation.fill('11')
         await registrationPopup.inputPasswordConfirmation.blur()
@@ -250,10 +186,6 @@ test.describe('Registration', async () => {
 
     });
     test('Password confirmation validation - different passwords ', async () => {
-
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
 
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPassword.fill('1321@Helena')
@@ -267,10 +199,6 @@ test.describe('Registration', async () => {
 
     test('Password confirmation validation - border colour', async () => {
 
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await registrationPopup.inputPasswordConfirmation.fill('11')
         await registrationPopup.inputPasswordConfirmation.blur()
@@ -282,10 +210,6 @@ test.describe('Registration', async () => {
     test('Register button validation', async () => {
 
         await expect(welcomePage.signInButton).toBeVisible();
-        await welcomePage.signInButton.click()
-        const signInPopup = new SignInPopup(page)
-        await signInPopup.registrationButton.click()
-
         const registrationPopup = new RegistrationPopup(page)
         await expect(registrationPopup.registerButton).toBeDisabled()
 
