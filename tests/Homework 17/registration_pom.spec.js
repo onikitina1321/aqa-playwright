@@ -2,6 +2,7 @@ import WelcomePage from "../pageObject/WelcomePage.js";
 import SignInPopup from "../components/SignInPopup.js";
 import RegistrationPopup from "../components/RegistrationPopup.js";
 import {expect, test} from "@playwright/test";
+import GaragePage from "../pageObject/GaragePage.js";
 
 test.describe('Registration', async () => {
     let page
@@ -26,6 +27,8 @@ test.describe('Registration', async () => {
         await registrationPopup.inputPassword.fill('1321@Helena')
         await registrationPopup.inputPasswordConfirmation.fill('1321@Helena')
         await registrationPopup.registerButton.click()
+        await page.waitForNavigation()
+        await expect(page.url()).toBe('https://qauto.forstudy.space/panel/garage')
     })
 
     test('Name validation - number of symbols', async () => {
