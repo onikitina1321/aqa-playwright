@@ -2,7 +2,6 @@ import WelcomePage from "../pageObject/WelcomePage.js";
 import SignInPopup from "../components/SignInPopup.js";
 import RegistrationPopup from "../components/RegistrationPopup.js";
 import {expect, test} from "@playwright/test";
-import GaragePage from "../pageObject/GaragePage.js";
 
 test.describe('Registration', async () => {
     let page
