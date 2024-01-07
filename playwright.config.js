@@ -39,7 +39,7 @@ const config = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "global-setup",
+      name: "global-global.setup.js",
       testMatch: 'tests/setup/*.setup.js',
     },
     {
@@ -50,20 +50,20 @@ const config = defineConfig({
       name: 'smoke-tests',
       grep: /@smoke/,
       use: { ...devices['Desktop Chrome'] },
-      dependencies: ["global-setup"],
+      dependencies: ["global-global.setup.js"],
       teardown: "global-teardown",
     },
     {
       name: 'regression',
       use: { ...devices['Desktop Chrome'] },
-      dependencies: ["global-setup"],
+      dependencies: ["global-global.setup.js"],
       teardown: "global-teardown",
     },
 
     // {
     //   name: 'chromium',
     //   use: { ...devices['Desktop Chrome'] },
-    //   dependencies: ["global-setup"],
+    //   dependencies: ["global-global.setup.js"],
     //   teardown: "global-teardown",
     // },
 
